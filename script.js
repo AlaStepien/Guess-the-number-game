@@ -69,10 +69,12 @@ document.querySelector('.check').addEventListener('click', function () {
 //Implement a game rest functionality, so that the player can make a new guess!
 
 document.querySelector('.again').addEventListener('click', function () {
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.score').textContent = 20;
-  document.querySelector('.number').textContent = '?';
+  score = 20;
+  const secretNumber = Math.trunc(Math.random() * 20) + 1;
   document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
+  document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 });
