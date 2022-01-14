@@ -13,8 +13,6 @@
 // document.querySelector('.guess').value = 23;
 // console.log(document.querySelector('.guess').value);
 
-//EVENT LISTENER
-
 //Math.random - liczba od 0 do 1 np. 0.98786
 //Math.random * 20 - liczba od 0 do 19.9999
 //Math.trunc - pozbywamy się liczb po przecinku, czyli od 0 do 19
@@ -24,7 +22,7 @@ const secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
 
-document.querySelector('.number').textContent = secretNumber;
+//EVENT LISTENER
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(typeof guess, guess);
@@ -36,6 +34,7 @@ document.querySelector('.check').addEventListener('click', function () {
     //When the number is correct
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = 'Correct Number!';
+    document.querySelector('.number').textContent = secretNumber;
 
     //Changing CSS styles with JS
     document.querySelector('body').style.backgroundColor = '#60b347';
@@ -64,4 +63,16 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+});
+
+//Coding Challenge #1
+//Implement a game rest functionality, so that the player can make a new guess!
+
+document.querySelector('.again').addEventListener('click', function () {
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.score').textContent = 20;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.guess').value = '';
+  document.querySelector('.number').style.width = '15rem';
 });
